@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Treasure_island
 {
@@ -52,6 +53,31 @@ namespace Treasure_island
     }
     internal class Program
     {
+        /// <summary>
+        /// Read Item objects from a file.
+        /// </summary>
+        /// <param name="path">Path to the file to read.</param>
+        /// <returns>A list of Item objects.</returns>
+        public static List<Item> readInput(string path)
+        {
+            List<Item> items = new List<Item>();
+            using (StreamReader sr = new StreamReader(path))
+            {
+                while(!sr.EndOfStream)
+                {
+                    string[] split = sr.ReadLine().Split(' ');
+                    items.Add(
+                        new Item(
+                            Convert.ToInt32(split[0]),
+                            Convert.ToInt32(split[1])
+                            )
+                        );
+                }
+            }
+
+            return items;
+        }
+
         static void Main(string[] args)
         {
         }
