@@ -50,6 +50,13 @@ namespace Treasure_island
             }
         }
         #endregion
+
+        #region Functions
+        public override string ToString()
+        {
+            return String.Format("Item(\"weight\": {0}, \"value\": {1})", this.weight, this.value);
+        }
+        #endregion
     }
     internal class Program
     {
@@ -80,6 +87,7 @@ namespace Treasure_island
 
         static void Main(string[] args)
         {
+
         }
     }
 }
